@@ -10,11 +10,11 @@ public class Test2 {
 	//hari krishna shrestha
 	public static void main(String[] args) {
 		EntityManager em=Persistence.createEntityManagerFactory("STAFF_ATTENDANCE").createEntityManager();
-		Test test=new Test();
-		test.setName("babu");
-		em.getTransaction().begin();
-		em.persist(test);
-		em.getTransaction().commit();
+//		Test test=new Test();
+//		test.setName("test");
+//		em.getTransaction().begin();
+//		em.persist(test);
+//		em.getTransaction().commit();
 		System.out.println("done");
 	}
 }
