@@ -70,6 +70,20 @@ public class EasServiceManager {
 		htmlTable=htmlTable.concat("</tbody></table>");
 		return htmlTable;
 	}
+	public static String getAttendanceStaffTable(List<Staff> staffs){
+		String htmlTable="<table border='1' cellspacing='0' cellpadding='0' class='staffTable'><thead>";
+		htmlTable=htmlTable.concat("<tr><th>Name</th><th>Contact</th><th></th><th></th></tr></thead><tbody>");
+		for (Staff staff: staffs) {
+			htmlTable=htmlTable.concat("<tr>");
+				htmlTable=htmlTable.concat("<td>"+staff.getFirstName()+" "+staff.getLastName()+"</td>");
+				htmlTable=htmlTable.concat("<td>"+staff.getContact()+"</td>");
+				htmlTable=htmlTable.concat("<td><button id="+staff.getId()+" class='absent aqua small attendance' present='false' name='"+staff+"'>Absent</button></td>");
+				htmlTable=htmlTable.concat("<td><button class='aqua small' name='"+staff+"'>View Attendance</button></td>");
+			htmlTable=htmlTable.concat("</tr>");	
+		}
+		htmlTable=htmlTable.concat("</tbody></table>");
+		return htmlTable;
+	}
 	public static void remove(String oid){
 		List list=select("select s from Staff s", Staff.class);
 		for (Object staff : list) {

@@ -8,6 +8,8 @@ body{background: radial-gradient(circle, #94D2F8, #3A92C8) repeat scroll 0 0 rgb
 .aquaBtn{background-image:url('../images/button/btn.png');}
 .left{float: left;}
 .right{float: right;}
+.present{color: white;border-radius: 10px;}
+.absent{background:red !important;color: white;border-radius: 10px;}
 .aqua{
 	background-color: rgba(60, 132, 198, 0.8);
   border-top-color: #8ba2c1;
