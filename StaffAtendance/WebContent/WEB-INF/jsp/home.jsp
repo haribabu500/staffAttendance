@@ -47,6 +47,14 @@
 			}
 		});
 	});
+	jQuery(".vatt").click(function(){
+		jQuery.ajax({
+			url:'reports/staffReport.htm',
+			success:function(){
+				alert("reporting");
+			}
+		});
+	});
 </script>
 </body>
 </html>

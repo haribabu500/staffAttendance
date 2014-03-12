@@ -1,5 +1,6 @@
 package com.hari.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hari.model.Attendance;
 import com.hari.model.Staff;
 import com.hari.service.EasServiceManager;
 
@@ -34,6 +36,14 @@ public class HomeController {
 		String staffAttendance[]=attendance.split("\\$\\$");
 		for (String string : staffAttendance) {
 			String temp[]=string.split("@@");
+			Attendance obj=new Attendance();
+			obj.setDate(new Date());
+			obj.setStaff(EasServiceManager.getSingleStaff(Integer.parseInt(temp[0])));
+			if(temp[1].equals("true"))
+				obj.setStatus('P');
+			else if(temp[1].equals("false"))
+				obj.setStatus('A');
+			EasServiceManager.save(obj);
 			attendances.put(EasServiceManager.getSingleStaff(Integer.parseInt(temp[0])), temp[1]);
 		}
 		return null;

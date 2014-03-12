@@ -78,7 +78,7 @@ public class EasServiceManager {
 				htmlTable=htmlTable.concat("<td>"+staff.getFirstName()+" "+staff.getLastName()+"</td>");
 				htmlTable=htmlTable.concat("<td>"+staff.getContact()+"</td>");
 				htmlTable=htmlTable.concat("<td><button id="+staff.getId()+" class='absent aqua small attendance' present='false' name='"+staff+"'>Absent</button></td>");
-				htmlTable=htmlTable.concat("<td><button class='aqua small' name='"+staff+"'>View Attendance</button></td>");
+				htmlTable=htmlTable.concat("<td><button class='aqua small vatt' name='"+staff+"'>View Attendance</button></td>");
 			htmlTable=htmlTable.concat("</tr>");	
 		}
 		htmlTable=htmlTable.concat("</tbody></table>");
