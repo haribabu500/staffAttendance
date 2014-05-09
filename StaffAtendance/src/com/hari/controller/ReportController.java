@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hari.model.Attendance;
@@ -12,15 +13,19 @@ import com.hari.model.Staff;
 import com.hari.model.StaffTotalAttendance;
 import com.hari.report.CreateReport;
 import com.hari.report.DynamicReportTest;
+import com.hari.report.IndividualStaffMonthReport;
 import com.hari.report.SingleStaffReport;
 import com.hari.service.EasServiceManager;
 
 @Controller
 public class ReportController {
 	@RequestMapping("reports/staffReport")
-	public ModelAndView staffReport(){
+	public ModelAndView staffReport(@RequestParam("id")int id){
 		ModelAndView mav=new ModelAndView("reports/staffReport");
-		SingleStaffReport obj=new SingleStaffReport();
+		Staff staff=EasServiceManager.getSingleStaff(id);
+		IndividualStaffMonthReport report=new IndividualStaffMonthReport(staff);
+		report.build();
+		/*SingleStaffReport obj=new SingleStaffReport();
 		obj.getStaffData();
 		
 		
@@ -36,7 +41,7 @@ public class ReportController {
 			StaffTotalAttendance staffTotalAttendance=new StaffTotalAttendance(staff, present.size(), absent.size());
 			staffTotalAttendances.add(staffTotalAttendance);
 		}
-		DynamicReportTest dynamicReportTest=new DynamicReportTest(staffTotalAttendances);
+		DynamicReportTest dynamicReportTest=new DynamicReportTest(staffTotalAttendances);*/
 		return mav;
 	}
 }

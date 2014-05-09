@@ -85,17 +85,6 @@ public class DynamicReportTest {
 			int absent=staffTotalAttendances.get(i).getTotalAbsentDays();
 			dataSource.add(name,absent,present);
 		}
-//		dataSource.add("Hari", 350, new BigDecimal(300));
-//		dataSource.add("Pramod", 300, new BigDecimal(500));
-//		dataSource.add("Manoj", 450, new BigDecimal(250));
-//		dataSource.add("Binod", 450, new BigDecimal(250));
 		return dataSource;
 	}
-
-	 
-
-
-//	public static void main(String[] args) {
-//		new DynamicReportTest();
-//	}
 }

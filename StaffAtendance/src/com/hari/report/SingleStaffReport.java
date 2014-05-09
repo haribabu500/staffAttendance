@@ -101,15 +101,21 @@ public class SingleStaffReport {
 	}
 	public void getStaffData(){
 		Staff staff=EasServiceManager.getSingleStaff(251);
-		List present=EasServiceManager.select("select count(a) from Attendance a where FUNC('MONTH', a.date)=2 and a.status='P'", Attendance.class);
-		List absent=EasServiceManager.select("select count(a) from Attendance a where FUNC('MONTH', a.date)=2 and a.status='A'", Attendance.class);
-		for (Object object : present) {
-			System.out.println(object);
+		List list=EasServiceManager.select("Select a from Attendance a where a.staff.id="+251, Attendance.class);
+		
+		for (Object object : list) {
+			System.out.println(((Attendance)object).getDate().getMonth()+" "+((Attendance)object).getStatus());
 		}
-		for (Object object : absent) {
-			System.out.println(object);
-		}
-		System.out.println("-----"+present.size());
+//		List present=EasServiceManager.select("select count(a) from Attendance a where FUNC('MONTH', a.date)=2 and a.status='P' and a.staff="+staff, Attendance.class);
+//		List absent=EasServiceManager.select("select count(a) from Attendance a where FUNC('MONTH', a.date)=2 and a.status='A'", Attendance.class);
+//		System.out.println("begin");
+//		for (Object object : present) {
+//			System.out.println(object);
+//		}
+//		for (Object object : absent) {
+//			System.out.println(object);
+//		}
+//		System.out.println("-----"+present.size());
 //		                                                         
 	}
 	 
